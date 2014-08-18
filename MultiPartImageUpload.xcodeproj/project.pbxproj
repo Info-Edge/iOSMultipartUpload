@@ -1,0 +1,420 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		23D4D09F199B400100ABCDCC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D4D09E199B400100ABCDCC /* Foundation.framework */; };
+		23D4D0A4199B400100ABCDCC /* MultiPartImageUpload.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 23D4D0A3199B400100ABCDCC /* MultiPartImageUpload.h */; };
+		23D4D0A6199B400100ABCDCC /* MultiPartImageUpload.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D4D0A5199B400100ABCDCC /* MultiPartImageUpload.m */; };
+		23D4D0AD199B400100ABCDCC /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D4D0AC199B400100ABCDCC /* XCTest.framework */; };
+		23D4D0AE199B400100ABCDCC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D4D09E199B400100ABCDCC /* Foundation.framework */; };
+		23D4D0B0199B400100ABCDCC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D4D0AF199B400100ABCDCC /* UIKit.framework */; };
+		23D4D0B3199B400100ABCDCC /* libMultiPartImageUpload.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 23D4D09B199B400100ABCDCC /* libMultiPartImageUpload.a */; };
+		23D4D0B9199B400100ABCDCC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 23D4D0B7199B400100ABCDCC /* InfoPlist.strings */; };
+		23D4D0BB199B400100ABCDCC /* MultiPartImageUploadTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 23D4D0BA199B400100ABCDCC /* MultiPartImageUploadTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		23D4D0B1199B400100ABCDCC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 23D4D093199B400000ABCDCC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 23D4D09A199B400100ABCDCC;
+			remoteInfo = MultiPartImageUpload;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		23D4D099199B400100ABCDCC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				23D4D0A4199B400100ABCDCC /* MultiPartImageUpload.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		23D4D09B199B400100ABCDCC /* libMultiPartImageUpload.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMultiPartImageUpload.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		23D4D09E199B400100ABCDCC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		23D4D0A2199B400100ABCDCC /* MultiPartImageUpload-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MultiPartImageUpload-Prefix.pch"; sourceTree = "<group>"; };
+		23D4D0A3199B400100ABCDCC /* MultiPartImageUpload.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MultiPartImageUpload.h; sourceTree = "<group>"; };
+		23D4D0A5199B400100ABCDCC /* MultiPartImageUpload.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiPartImageUpload.m; sourceTree = "<group>"; };
+		23D4D0AB199B400100ABCDCC /* MultiPartImageUploadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MultiPartImageUploadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		23D4D0AC199B400100ABCDCC /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		23D4D0AF199B400100ABCDCC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		23D4D0B6199B400100ABCDCC /* MultiPartImageUploadTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MultiPartImageUploadTests-Info.plist"; sourceTree = "<group>"; };
+		23D4D0B8199B400100ABCDCC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		23D4D0BA199B400100ABCDCC /* MultiPartImageUploadTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MultiPartImageUploadTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		23D4D098199B400100ABCDCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23D4D09F199B400100ABCDCC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23D4D0A8199B400100ABCDCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23D4D0AD199B400100ABCDCC /* XCTest.framework in Frameworks */,
+				23D4D0B3199B400100ABCDCC /* libMultiPartImageUpload.a in Frameworks */,
+				23D4D0B0199B400100ABCDCC /* UIKit.framework in Frameworks */,
+				23D4D0AE199B400100ABCDCC /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		23D4D092199B400000ABCDCC = {
+			isa = PBXGroup;
+			children = (
+				23D4D0A0199B400100ABCDCC /* MultiPartImageUpload */,
+				23D4D0B4199B400100ABCDCC /* MultiPartImageUploadTests */,
+				23D4D09D199B400100ABCDCC /* Frameworks */,
+				23D4D09C199B400100ABCDCC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		23D4D09C199B400100ABCDCC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				23D4D09B199B400100ABCDCC /* libMultiPartImageUpload.a */,
+				23D4D0AB199B400100ABCDCC /* MultiPartImageUploadTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		23D4D09D199B400100ABCDCC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				23D4D09E199B400100ABCDCC /* Foundation.framework */,
+				23D4D0AC199B400100ABCDCC /* XCTest.framework */,
+				23D4D0AF199B400100ABCDCC /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		23D4D0A0199B400100ABCDCC /* MultiPartImageUpload */ = {
+			isa = PBXGroup;
+			children = (
+				23D4D0A3199B400100ABCDCC /* MultiPartImageUpload.h */,
+				23D4D0A5199B400100ABCDCC /* MultiPartImageUpload.m */,
+				23D4D0A1199B400100ABCDCC /* Supporting Files */,
+			);
+			path = MultiPartImageUpload;
+			sourceTree = "<group>";
+		};
+		23D4D0A1199B400100ABCDCC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				23D4D0A2199B400100ABCDCC /* MultiPartImageUpload-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		23D4D0B4199B400100ABCDCC /* MultiPartImageUploadTests */ = {
+			isa = PBXGroup;
+			children = (
+				23D4D0BA199B400100ABCDCC /* MultiPartImageUploadTests.m */,
+				23D4D0B5199B400100ABCDCC /* Supporting Files */,
+			);
+			path = MultiPartImageUploadTests;
+			sourceTree = "<group>";
+		};
+		23D4D0B5199B400100ABCDCC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				23D4D0B6199B400100ABCDCC /* MultiPartImageUploadTests-Info.plist */,
+				23D4D0B7199B400100ABCDCC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		23D4D09A199B400100ABCDCC /* MultiPartImageUpload */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23D4D0BE199B400100ABCDCC /* Build configuration list for PBXNativeTarget "MultiPartImageUpload" */;
+			buildPhases = (
+				23D4D097199B400100ABCDCC /* Sources */,
+				23D4D098199B400100ABCDCC /* Frameworks */,
+				23D4D099199B400100ABCDCC /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MultiPartImageUpload;
+			productName = MultiPartImageUpload;
+			productReference = 23D4D09B199B400100ABCDCC /* libMultiPartImageUpload.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		23D4D0AA199B400100ABCDCC /* MultiPartImageUploadTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 23D4D0C1199B400100ABCDCC /* Build configuration list for PBXNativeTarget "MultiPartImageUploadTests" */;
+			buildPhases = (
+				23D4D0A7199B400100ABCDCC /* Sources */,
+				23D4D0A8199B400100ABCDCC /* Frameworks */,
+				23D4D0A9199B400100ABCDCC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				23D4D0B2199B400100ABCDCC /* PBXTargetDependency */,
+			);
+			name = MultiPartImageUploadTests;
+			productName = MultiPartImageUploadTests;
+			productReference = 23D4D0AB199B400100ABCDCC /* MultiPartImageUploadTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		23D4D093199B400000ABCDCC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = HDDev;
+			};
+			buildConfigurationList = 23D4D096199B400000ABCDCC /* Build configuration list for PBXProject "MultiPartImageUpload" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 23D4D092199B400000ABCDCC;
+			productRefGroup = 23D4D09C199B400100ABCDCC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				23D4D09A199B400100ABCDCC /* MultiPartImageUpload */,
+				23D4D0AA199B400100ABCDCC /* MultiPartImageUploadTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		23D4D0A9199B400100ABCDCC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23D4D0B9199B400100ABCDCC /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		23D4D097199B400100ABCDCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23D4D0A6199B400100ABCDCC /* MultiPartImageUpload.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		23D4D0A7199B400100ABCDCC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23D4D0BB199B400100ABCDCC /* MultiPartImageUploadTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		23D4D0B2199B400100ABCDCC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 23D4D09A199B400100ABCDCC /* MultiPartImageUpload */;
+			targetProxy = 23D4D0B1199B400100ABCDCC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		23D4D0B7199B400100ABCDCC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				23D4D0B8199B400100ABCDCC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		23D4D0BC199B400100ABCDCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		23D4D0BD199B400100ABCDCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		23D4D0BF199B400100ABCDCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/MultiPartImageUpload.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MultiPartImageUpload/MultiPartImageUpload-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		23D4D0C0199B400100ABCDCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/MultiPartImageUpload.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MultiPartImageUpload/MultiPartImageUpload-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		23D4D0C2199B400100ABCDCC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MultiPartImageUpload/MultiPartImageUpload-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "MultiPartImageUploadTests/MultiPartImageUploadTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		23D4D0C3199B400100ABCDCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "MultiPartImageUpload/MultiPartImageUpload-Prefix.pch";
+				INFOPLIST_FILE = "MultiPartImageUploadTests/MultiPartImageUploadTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		23D4D096199B400000ABCDCC /* Build configuration list for PBXProject "MultiPartImageUpload" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23D4D0BC199B400100ABCDCC /* Debug */,
+				23D4D0BD199B400100ABCDCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		23D4D0BE199B400100ABCDCC /* Build configuration list for PBXNativeTarget "MultiPartImageUpload" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23D4D0BF199B400100ABCDCC /* Debug */,
+				23D4D0C0199B400100ABCDCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		23D4D0C1199B400100ABCDCC /* Build configuration list for PBXNativeTarget "MultiPartImageUploadTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				23D4D0C2199B400100ABCDCC /* Debug */,
+				23D4D0C3199B400100ABCDCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 23D4D093199B400000ABCDCC /* Project object */;
+}
