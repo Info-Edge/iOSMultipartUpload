@@ -4,10 +4,13 @@ HDMultipartUpload
 
 Step 1:
      UIImage is converted into in NSData.
+     
 Step 2:
      Data is divided into chunks.
+     
 Step 3:
      Chunks are send to server sequentially.
+     
 Step 4:     
      Check Server response.
            Case 1- if failed to upload same chunk is resend.
@@ -15,7 +18,8 @@ Step 4:
  
  
  
- Usage Code:---
+ 
+ --Usage Code:---
  
 -(void)demoupload
 {
@@ -48,7 +52,7 @@ Step 4:
 {
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
     
-#warning - These key values in post dictionary varies according to the server implementation----
+    //- #warning - These key values in post dictionary varies according to the server implementation----
     UIImage *imageTobeUploaded = [UIImage imageWithContentsOfFile:self.imageFilePath];
     
     NSData *imageData;
@@ -89,7 +93,7 @@ Step 4:
     [param setObject:originalFilename
               forKey:@"originalFilename"];
     
-#warning - These key values in post dictionary varies according to the server implementation----
+    //- #warning - These key values in post dictionary varies according to the server implementation----
     return param;
     
 }
