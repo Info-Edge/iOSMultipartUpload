@@ -27,8 +27,7 @@ Step 4:
     NSString *documentsDirectory = [paths objectAtIndex:0];
     documentsDirectory = [NSString stringWithFormat:@"%@/ProfilePic/",documentsDirectory];
     NSFileManager*fmanager = [NSFileManager defaultManager];
-    if(![fmanager fileExistsAtPath:documentsDirectory])
-    {
+    if(![fmanager fileExistsAtPath:documentsDirectory]) {
         [fmanager createDirectoryAtPath:documentsDirectory withIntermediateDirectories:YES attributes:nil error:nil];
     }
     NSString * filePath =  [NSString stringWithFormat:@"%@",documentsDirectory];
@@ -47,7 +46,6 @@ Step 4:
     [obj startUploadImagesToServer];
     
 }
- 
 -(NSMutableDictionary*)demoPostDict
 {
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
