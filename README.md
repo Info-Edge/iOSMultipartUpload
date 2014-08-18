@@ -21,6 +21,8 @@ Step 4:
  
  --Usage Code:---
  
+////////////////////////////////////////////////---
+
 -(void)demoupload
 {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -31,28 +33,21 @@ Step 4:
         [fmanager createDirectoryAtPath:documentsDirectory withIntermediateDirectories:YES attributes:nil error:nil];
     }
     NSString * filePath =  [NSString stringWithFormat:@"%@",documentsDirectory];
- 
     NSMutableDictionary *postParam = [[NSMutableDictionary alloc]init];
     [postParam addEntriesFromDictionary:[self demoPostDict]];
-    
     HDMultiPartImageUpload *obj = [[HDMultiPartImageUpload alloc]init];
- 
     obj.oneChunkSize = 1024 *10;
     obj.selectedImageType = eImageTypePNG;
     obj.imageFilePath =filePath;
     obj.uploadURLString = @"http://example.com/upload";
     obj.postParametersDict = postParam;
-    
     [obj startUploadImagesToServer];
-    
 }
 -(NSMutableDictionary*)demoPostDict
 {
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
-    
     //- #warning - These key values in post dictionary varies according to the server implementation----
     UIImage *imageTobeUploaded = [UIImage imageWithContentsOfFile:self.imageFilePath];
-    
     NSData *imageData;
     NSString *fileType;
     
@@ -64,7 +59,6 @@ Step 4:
         imageData = UIImagePNGRepresentation(imageTobeUploaded);
         fileType = @"image/png";
     }
-    
     NSUInteger totalFileSize = [imageData length];
     //    int totalChunks = ceil(totalFileSize/oneChunkSize);
     int totalChunks = round((totalFileSize/self.oneChunkSize)+0.5);//round-off to nearest  largest valua 1.01 is considered as 2
@@ -95,3 +89,4 @@ Step 4:
     return param;
     
 }
+///////////////////////////////////////////////////////////------------
