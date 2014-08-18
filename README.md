@@ -23,44 +23,78 @@ Step 4:
  
 ////////////////////////////////////////////////---
 
--(void)demoupload
+-(void)demoupload 
 {
+
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    documentsDirectory = [NSString stringWithFormat:@"%@/ProfilePic/",documentsDirectory];
-    NSFileManager*fmanager = [NSFileManager defaultManager];
-    if(![fmanager fileExistsAtPath:documentsDirectory]) {
+    
+    NSString *documentsDirectory = [paths objectAtIndex:0]; 
+    
+    documentsDirectory = [NSString stringWithFormat:@"%@/ProfilePic/",documentsDirectory]; 
+    
+    NSFileManager*fmanager = [NSFileManager defaultManager]; 
+    
+    if(![fmanager fileExistsAtPath:documentsDirectory]) 
+    {
         [fmanager createDirectoryAtPath:documentsDirectory withIntermediateDirectories:YES attributes:nil error:nil];
+        
     }
+    
     NSString * filePath =  [NSString stringWithFormat:@"%@",documentsDirectory];
+    
     NSMutableDictionary *postParam = [[NSMutableDictionary alloc]init];
+    
     [postParam addEntriesFromDictionary:[self demoPostDict]];
+    
     HDMultiPartImageUpload *obj = [[HDMultiPartImageUpload alloc]init];
+    
     obj.oneChunkSize = 1024 *10;
+    
     obj.selectedImageType = eImageTypePNG;
+    
     obj.imageFilePath =filePath;
+    
     obj.uploadURLString = @"http://example.com/upload";
+    
     obj.postParametersDict = postParam;
+    
     [obj startUploadImagesToServer];
 }
+
 -(NSMutableDictionary*)demoPostDict
 {
     NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
-    //- #warning - These key values in post dictionary varies according to the server implementation----
+    
+    #warning - These key values in post dictionary varies according to the server implementation----
+    
     UIImage *imageTobeUploaded = [UIImage imageWithContentsOfFile:self.imageFilePath];
+    
     NSData *imageData;
+    
     NSString *fileType;
     
-    if (self.selectedImageType == eImageTypeJPG){
+    if (self.selectedImageType == eImageTypeJPG)
+    {
+        
         imageData = UIImageJPEGRepresentation(imageTobeUploaded, 1.0);
+        
         fileType = @"image/jpg";
+        
     }
-    else if (self.selectedImageType == eImageTypePNG) {
+    
+    else if (self.selectedImageType == eImageTypePNG) 
+    {
+        
         imageData = UIImagePNGRepresentation(imageTobeUploaded);
+        
         fileType = @"image/png";
+        
     }
+    
     NSUInteger totalFileSize = [imageData length];
+    
     //    int totalChunks = ceil(totalFileSize/oneChunkSize);
+    
     int totalChunks = round((totalFileSize/self.oneChunkSize)+0.5);//round-off to nearest  largest valua 1.01 is considered as 2
     
     // Create your Post parameter dict according to server
