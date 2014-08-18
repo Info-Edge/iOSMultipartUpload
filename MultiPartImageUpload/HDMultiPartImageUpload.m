@@ -1,52 +1,53 @@
 //
-//  MultiPartImageUpload.m
-//  MultiPartImageUpload
+//  HDMultiPartImageUpload.m
+//  HDMultiPartImageUpload
 //
 //  Created by HarshDuggal on 13/08/14.
-//  Copyright (c) 2014 HDDev. All rights reserved.
+//  Copyright (c) 2014 Infoedge. All rights reserved.
 //
-
-#import "MultiPartImageUpload.h"
-
-
-
-
-@interface MultiPartImageUpload ()
+ 
+#import "HDMultiPartImageUpload.h"
+ 
+ 
+ 
+ 
+@interface HDMultiPartImageUpload ()
 {
     int totalChunksTobeUploaded;
     int chunksUploadedSuccessfully;
 }
 -(void)uploadImageChunkToServerFullImageData:(NSData*)imageData withParam:(NSMutableDictionary*)param withOffset:(NSUInteger)offset;
-
+ 
 @end
-
-@implementation MultiPartImageUpload
-
-
+ 
+@implementation HDMultiPartImageUpload
+ 
+ 
 - (NSData*)getPostDataFromDictionary:(NSDictionary*)dict
 {
-    NSArray* keys = [dict allKeys];// Create array of key
+    id boundary = BOUNDARY;
+    NSArray* keys = [dict allKeys];
     NSMutableData* result = [NSMutableData data];
     
     // add params (all params are strings)
-    [result appendData:[[NSString stringWithFormat:@"\n--%@\r\n", BOUNDARY] dataUsingEncoding:NSUTF8StringEncoding]];
-
-    for (int i = 0; i < [keys count]; i++) {
-        id tmpKey = [keys objectAtIndex:i];// Get current key
-        id tmpValue = [dict valueForKey: tmpKey]; // Get current value for the key
+    [result appendData:[[NSString stringWithFormat:@"\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+ 
+    for (int i = 0; i < [keys count]; i++)
+    {
+        id tmpKey = [keys objectAtIndex:i];
+        id tmpValue = [dict valueForKey: tmpKey];
         
         [result appendData: [[NSString stringWithFormat:@"Content-Disposition: form-data; name=%@\r\n\r\n \n%@", tmpKey,tmpValue] dataUsingEncoding:NSUTF8StringEncoding]];
-
 		
         // Append boundary after every key-value
-        [result appendData:[[NSString stringWithFormat:@"\n--%@\r\n", BOUNDARY] dataUsingEncoding:NSUTF8StringEncoding]];
+        [result appendData:[[NSString stringWithFormat:@"\n--%@\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     }
-
+ 
     return result;
 }
-
-
-
+ 
+ 
+ 
 -(void)startUploadImagesToServer
 {
     
@@ -73,7 +74,7 @@
         fileType = @"image/png";
     }
     
-//    // get size using NSFilemanager
+    
 //    unsigned long long totalFileSize = [[[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil] fileSize];
     
     
@@ -81,7 +82,7 @@
     //    int totalChunks = ceil(totalFileSize/oneChunkSize);
     int totalChunks = round((totalFileSize/self.oneChunkSize)+0.5);//round-off to nearest  largest valua 1.01 is considered as 2
     
-
+ 
     // Start multipart upload chunk sequentially-
     NSUInteger offset = 0;
     totalChunksTobeUploaded = totalChunks;
@@ -89,13 +90,13 @@
     [self uploadImageChunkToServerFullImageData:imageData withParam:self.postParametersDict withOffset:offset];
     
 }
-
-
-
-
-
-
-
+ 
+ 
+ 
+ 
+ 
+ 
+ 
 -(void)uploadImageChunkToServerFullImageData:(NSData*)imageData withParam:(NSMutableDictionary*)param withOffset:(NSUInteger)offset
 {
     
@@ -116,9 +117,10 @@
     [request setTimeoutInterval:60];
     [request setHTTPMethod:@"POST"];
     
+    NSString *boundary = BOUNDARY;
     //
     //    // set Content-Type in HTTP header
-    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", BOUNDARY];
+    NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
     [request setValue:contentType forHTTPHeaderField: @"Content-Type"];
     //
     // post body
@@ -135,9 +137,9 @@
     [body appendData:chunk];
     [body appendData:[[NSString stringWithFormat:@"\r\n"] dataUsingEncoding:NSUTF8StringEncoding]];
     
-    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", BOUNDARY] dataUsingEncoding:NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"--%@--\r\n", boundary] dataUsingEncoding:NSUTF8StringEncoding]];
     
-
+ 
     // setting the body of the post to the reqeust
     NSString * bodyString =[[NSString alloc]initWithData:body encoding:NSASCIIStringEncoding];
     NSLog(@"body sent to server: \n %@ \n",bodyString);
@@ -183,7 +185,7 @@
             BOOL successfulUpload = YES; // Check success msg from server in "responseRxDict" .
             if (successfulUpload) {
                 chunksUploadedSuccessfully += 1;
-
+ 
 #warning update your post param dict if needed, accoording to server implementation
                 [param setObject:[NSString stringWithFormat:@"%d",chunksUploadedSuccessfully] forKey:@"chunk"];
 // above line is example should altered according to the server key in needed
@@ -217,84 +219,3 @@
             }
     }];
 }
-
-
-
--(void)demoupload
-{
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *documentsDirectory = [paths objectAtIndex:0];
-    documentsDirectory = [NSString stringWithFormat:@"%@/ProfilePic/",documentsDirectory];
-    NSFileManager*fmanager = [NSFileManager defaultManager];
-    if(![fmanager fileExistsAtPath:documentsDirectory])
-    {
-        [fmanager createDirectoryAtPath:documentsDirectory withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-    NSString * filePath =  [NSString stringWithFormat:@"%@",documentsDirectory];
-
-    NSMutableDictionary *postParam = [[NSMutableDictionary alloc]init];
-    [postParam addEntriesFromDictionary:[self demoPostDict]];
-    
-    MultiPartImageUpload *obj = [[MultiPartImageUpload alloc]init];
-
-    obj.oneChunkSize = 1024 *10;
-    obj.selectedImageType = eImageTypePNG;
-    obj.imageFilePath =filePath;
-    obj.uploadURLString = @"http://example.com/upload";
-    obj.postParametersDict = postParam;
-    
-    [obj startUploadImagesToServer];
-    
-}
-
--(NSMutableDictionary*)demoPostDict
-{
-    NSMutableDictionary *param = [[NSMutableDictionary alloc]init];
-    
-#warning - These key values in post dictionary varies according to the server implementation----
-    UIImage *imageTobeUploaded = [UIImage imageWithContentsOfFile:self.imageFilePath];
-    
-    NSData *imageData;
-    NSString *fileType;
-    
-    if (self.selectedImageType == eImageTypeJPG){
-        imageData = UIImageJPEGRepresentation(imageTobeUploaded, 1.0);
-        fileType = @"image/jpg";
-    }
-    else if (self.selectedImageType == eImageTypePNG) {
-        imageData = UIImagePNGRepresentation(imageTobeUploaded);
-        fileType = @"image/png";
-    }
-    
-    NSUInteger totalFileSize = [imageData length];
-    //    int totalChunks = ceil(totalFileSize/oneChunkSize);
-    int totalChunks = round((totalFileSize/self.oneChunkSize)+0.5);//round-off to nearest  largest valua 1.01 is considered as 2
-    
-    // Create your Post parameter dict according to server
-    NSString* originalFilename = @"tmpImageToUpload.png";//uniqueFileName;
-    
-    //Creating a unique file to upload to server
-    NSString *prefixString = @"Album";
-    //    This method generates a new string each time it is invoked, so it also uses a counter to guarantee that strings created from the same process are unique.
-    NSString *guid = [[NSProcessInfo processInfo] globallyUniqueString] ;//
-    NSString *uniqueFileName = [NSString stringWithFormat:@"%@_%@", prefixString, guid];
-    
-    //Add key values your post param Dict
-    [param setObject:uniqueFileName
-              forKey:@"uniqueFilename"];
-    [param setObject:[NSString stringWithFormat:@"%lu",(unsigned long)totalFileSize]
-              forKey:@"totalFileSize"];
-    [param setObject:@"0" forKey:@"chunk"];
-    [param setObject:[NSString stringWithFormat:@"%d",totalChunks]
-              forKey:@"chunks"];
-    [param setObject:fileType
-              forKey:@"fileType"];
-    [param setObject:originalFilename
-              forKey:@"originalFilename"];
-    
-#warning - These key values in post dictionary varies according to the server implementation----
-    return param;
-    
-}
-
-@end
